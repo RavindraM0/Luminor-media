@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 340" width="100%" height="100%" fill="none">
+  <!-- Cutlery & Hill on top -->
+  <path d="M125 155 Q220 120 315 155 Z" fill="#1a1815" />
+  <!-- Center Fork -->
+  <g fill="#1a1815">
+    <rect x="217" y="55" width="6" height="70" rx="3" />
+    <path d="M208 55 L208 82 Q208 96 220 96 Q232 96 232 82 L232 55 L228 55 L228 80 Q228 88 220 88 Q212 88 212 80 L212 55 Z" />
+    <rect x="214" y="55" width="3" height="24" />
+    <rect x="223" y="55" width="3" height="24" />
+  </g>
+  <!-- Left Spoon -->
+  <g fill="#1a1815">
+    <ellipse cx="172" cy="74" rx="14" ry="21" />
+    <rect x="169" y="88" width="6" height="50" rx="3" />
+  </g>
+  <!-- Right Spoon -->
+  <g fill="#1a1815">
+    <ellipse cx="268" cy="74" rx="14" ry="21" />
+    <rect x="265" y="88" width="6" height="50" rx="3" />
+  </g>
+
+  <!-- Arched Vintage Banner -->
+  <path d="M 50 178 
+           L 15 195 L 42 225 L 15 255 L 56 235
+           C 110 200, 330 200, 384 235
+           L 425 255 L 398 225 L 425 195 L 390 178
+           C 330 145, 110 145, 50 178 Z" fill="#1a1815" />
+
+  <!-- Arched Text VINTAGE -->
+  <defs>
+    <path id="vintageCurve" d="M 68 220 C 120 186, 320 186, 372 220" />
+    <path id="goldCurveTop" d="M 115 272 Q 220 292 325 272" fill="none" />
+    <path id="goldCurveBottom" d="M 102 308 Q 220 338 338 308" fill="none" />
+  </defs>
+
+  <text fill="#ffffff" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="39" letter-spacing="0.16em">
+    <textPath href="#vintageCurve" startOffset="50%" text-anchor="middle">
+      VINTAGE
+    </textPath>
+  </text>
+
+  <!-- ESTD Star 2024 -->
+  <g transform="translate(220, 256)" text-anchor="middle">
+    <text x="-48" y="0" fill="#1a1815" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="15" letter-spacing="0.18em">ESTD</text>
+    <!-- Star -->
+    <polygon points="0,-7 2.2,-1.5 8,-1.5 3.3,2 5,7.5 0,4.2 -5,7.5 -3.3,2 -8,-1.5 -2.2,-1.5" fill="#b98e38" />
+    <text x="48" y="0" fill="#1a1815" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="15" letter-spacing="0.18em">2024</text>
+  </g>
+
+  <!-- Gold Curves -->
+  <use href="#goldCurveTop" stroke="#b98e38" stroke-width="2" />
+  <use href="#goldCurveBottom" stroke="#b98e38" stroke-width="2" />
+
+  <!-- CAFÉ Text -->
+  <text x="220" y="303" text-anchor="middle" fill="#1a1815" font-family="'Playfair Display', Georgia, serif" font-weight="700" font-size="27" letter-spacing="0.32em">
+    CAFÉ
+  </text>
+</svg>

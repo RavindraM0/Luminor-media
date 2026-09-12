@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="100%" height="100%" fill="none">
+  <!-- Circular Frames -->
+  <circle cx="210" cy="210" r="195" stroke="#18432a" stroke-width="5" />
+  <circle cx="210" cy="210" r="185" stroke="#18432a" stroke-width="2" />
+
+  <!-- Bamboo Leaves along border -->
+  <!-- Top Left Leaves -->
+  <path d="M 80 110 C 60 90, 75 60, 105 75 C 95 95, 85 105, 80 110 Z" fill="#18432a" />
+  <path d="M 100 80 C 110 50, 135 60, 125 90 C 112 85, 105 82, 100 80 Z" fill="#18432a" />
+  <!-- Left Side Leaves -->
+  <path d="M 65 205 C 40 200, 45 170, 75 180 C 72 195, 68 200, 65 205 Z" fill="#18432a" />
+  <path d="M 68 215 C 45 225, 48 250, 78 235 C 74 225, 70 220, 68 215 Z" fill="#18432a" />
+  <!-- Right Side Leaves -->
+  <path d="M 355 210 C 375 190, 395 210, 375 235 C 365 225, 360 215, 355 210 Z" fill="#18432a" />
+  <path d="M 350 295 C 370 275, 395 295, 370 325 C 358 310, 354 300, 350 295 Z" fill="#18432a" />
+  <path d="M 330 330 C 355 340, 375 365, 340 375 C 335 355, 332 340, 330 330 Z" fill="#18432a" />
+
+  <!-- Cottage / Hut in Top Right (Restaurant Scene) -->
+  <g transform="translate(240, 85)">
+    <!-- Mountain Background -->
+    <path d="M 65 45 Q 85 30 105 45 L 105 50 L 65 50 Z" fill="#8ca892" opacity="0.4" />
+    <path d="M 85 45 Q 100 35 118 45 L 118 50 L 85 50 Z" fill="#8ca892" opacity="0.4" />
+    <!-- Sloped Roof -->
+    <polygon points="45,0 0,55 8,58 48,8 88,58 96,55" fill="#66461f" />
+    <polygon points="45,0 90,56 80,56 45,10" fill="#875d29" />
+    <line x1="45" y1="0" x2="45" y2="65" stroke="#66461f" stroke-width="2.5" />
+    <line x1="53" y1="12" x2="53" y2="65" stroke="#66461f" stroke-width="2" />
+    <line x1="61" y1="24" x2="61" y2="65" stroke="#66461f" stroke-width="2" />
+    <line x1="69" y1="36" x2="69" y2="65" stroke="#66461f" stroke-width="2" />
+    <!-- Table & Chairs Silhouette inside Hut -->
+    <rect x="32" y="48" width="26" height="4" fill="#66461f" />
+    <rect x="36" y="52" width="4" height="15" fill="#66461f" />
+    <rect x="50" y="52" width="4" height="15" fill="#66461f" />
+    <rect x="24" y="44" width="4" height="23" fill="#66461f" />
+    <rect x="62" y="44" width="4" height="23" fill="#66461f" />
+    <!-- Hanging Lamps -->
+    <line x1="38" y1="28" x2="38" y2="40" stroke="#66461f" stroke-width="1.5" />
+    <polygon points="38,40 34,45 42,45" fill="#987b2e" />
+    <line x1="52" y1="28" x2="52" y2="40" stroke="#66461f" stroke-width="1.5" />
+    <polygon points="52,40 48,45 56,45" fill="#987b2e" />
+    <!-- Base Hill -->
+    <path d="M -15 65 Q 45 45 105 70" stroke="#66461f" stroke-width="2.5" fill="none" />
+  </g>
+
+  <!-- Bamboo 'T' for "Top" -->
+  <g id="bamboo-T">
+    <!-- Horizontal Crossbar -->
+    <rect x="80" y="100" width="85" height="16" rx="6" fill="#18432a" />
+    <rect x="83" y="103" width="3" height="10" fill="#2d6e46" />
+    <rect x="119" y="103" width="4" height="10" fill="#2d6e46" />
+    <rect x="156" y="103" width="3" height="10" fill="#2d6e46" />
+    <!-- Vertical Stalk -->
+    <rect x="112" y="116" width="18" height="42" rx="4" fill="#18432a" />
+    <rect x="110" y="156" width="22" height="4" rx="2" fill="#2d6e46" />
+    <rect x="112" y="160" width="18" height="48" rx="4" fill="#18432a" />
+    <rect x="110" y="206" width="22" height="4" rx="2" fill="#2d6e46" />
+    <rect x="112" y="210" width="18" height="65" rx="4" fill="#18432a" />
+    <rect x="110" y="273" width="22" height="5" rx="2" fill="#2d6e46" />
+
+    <!-- Sprouting Bamboo Leaves from top node -->
+    <path d="M 165 108 C 190 90, 205 100, 185 125 C 175 118, 168 112, 165 108 Z" fill="#18432a" />
+    <path d="M 168 105 C 180 80, 200 82, 185 105 Z" fill="#18432a" />
+    <path d="M 166 112 C 185 125, 195 140, 175 142 Z" fill="#18432a" />
+  </g>
+
+  <!-- Letters "op" -->
+  <text x="145" y="195" fill="#18432a" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="96" letter-spacing="-0.04em">
+    op
+  </text>
+
+  <!-- Center "— in —" -->
+  <g transform="translate(195, 222)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#987b2e" stroke-width="2.5" stroke-linecap="round" />
+    <text x="32" y="8" fill="#987b2e" font-family="'Playfair Display', Georgia, serif" font-weight="700" font-size="34">
+      in
+    </text>
+    <!-- Little leaves over the 'i' -->
+    <path d="M 37 -12 C 34 -20 42 -22 44 -14 Z" fill="#18432a" />
+    <path d="M 43 -12 C 50 -18 54 -12 46 -8 Z" fill="#18432a" />
+    <line x1="72" y1="0" x2="92" y2="0" stroke="#987b2e" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+
+  <!-- "Town" -->
+  <g transform="translate(142, 230)">
+    <!-- Bamboo T for Town -->
+    <rect x="0" y="5" width="42" height="9" rx="3" fill="#18432a" />
+    <rect x="15" y="14" width="11" height="46" rx="2" fill="#18432a" />
+    <rect x="14" y="34" width="13" height="3" fill="#2d6e46" />
+    <rect x="13" y="58" width="15" height="3" fill="#2d6e46" />
+    <!-- Mini leaves at base -->
+    <path d="M 14 55 C 5 52 8 42 16 48 Z" fill="#18432a" />
+
+    <!-- "own" -->
+    <text x="38" y="58" fill="#18432a" font-family="'Playfair Display', Georgia, serif" font-weight="800" font-size="64" letter-spacing="-0.02em">
+      own
+    </text>
+
+    <!-- Chef Hat over 'n' -->
+    <g transform="translate(156, 12)">
+      <path d="M 6 12 C 0 8, 2 0, 10 2 C 14 -4, 22 -4, 26 2 C 34 0, 36 8, 30 12 L 28 16 L 8 16 Z" fill="#ffffff" stroke="#18432a" stroke-width="2.5" />
+      <line x1="8" y1="16" x2="28" y2="16" stroke="#18432a" stroke-width="2" />
+    </g>
+  </g>
+
+  <!-- FAMILY RESTAURANT -->
+  <text x="210" y="325" text-anchor="middle" fill="#18432a" font-family="'Outfit', system-ui, sans-serif" font-weight="700" font-size="18" letter-spacing="0.32em">
+    FAMILY RESTAURANT
+  </text>
+
+  <!-- Bottom Accent: — ☘ — -->
+  <g transform="translate(210, 345)">
+    <line x1="-50" y1="0" x2="-18" y2="0" stroke="#18432a" stroke-width="2" stroke-linecap="round" />
+    <!-- 3 Leaves in Center -->
+    <path d="M 0 -12 C -6 -7 -4 0 0 0 C 4 0 6 -7 0 -12 Z" fill="#18432a" />
+    <path d="M -12 -3 C -10 -9 -3 -7 0 0 C -4 3 -10 2 -12 -3 Z" fill="#18432a" />
+    <path d="M 12 -3 C 10 -9 3 -7 0 0 C 4 3 10 2 12 -3 Z" fill="#18432a" />
+    <line x1="18" y1="0" x2="50" y2="0" stroke="#18432a" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>

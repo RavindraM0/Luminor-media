@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%" fill="none">
+  <!-- Outer Rings -->
+  <circle cx="200" cy="200" r="185" stroke="#0a4ba6" stroke-width="8" />
+  <circle cx="200" cy="200" r="172" stroke="#0a4ba6" stroke-width="2.5" />
+  <circle cx="200" cy="200" r="122" stroke="#0a4ba6" stroke-width="4" />
+
+  <!-- Circular Text Paths -->
+  <defs>
+    <!-- Top Arc (Clockwise) -->
+    <path id="circleArcTop" d="M 52 200 A 148 148 0 1 1 348 200" />
+    <!-- Bottom Arc (Clockwise so text reads upright from left to right) -->
+    <path id="circleArcBottom" d="M 348 200 A 148 148 0 0 1 52 200" />
+  </defs>
+
+  <!-- Top Text -->
+  <text fill="#0a4ba6" font-family="'Outfit', system-ui, sans-serif" font-weight="900" font-size="22" letter-spacing="0.14em">
+    <textPath href="#circleArcTop" startOffset="50%" text-anchor="middle">
+      CHITRADURGA CRICKET CLUBB
+    </textPath>
+  </text>
+
+  <!-- Bottom Text -->
+  <text fill="#0a4ba6" font-family="'Outfit', system-ui, sans-serif" font-weight="800" font-size="21" letter-spacing="0.22em">
+    <textPath href="#circleArcBottom" startOffset="50%" text-anchor="middle">
+      ★ CHITRADURGA ★
+    </textPath>
+  </text>
+
+  <!-- Center Artwork (Obavva Warrior vs Elephant) -->
+  <g fill="#0a4ba6" transform="translate(200, 200) scale(0.92) translate(-200, -200)">
+    <!-- Ground Line -->
+    <rect x="100" y="232" width="200" height="4" rx="2" />
+
+    <!-- Elephant on Right -->
+    <!-- Head, Ears, Body, Legs, Trunk, Tusks -->
+    <path d="M 285 210 
+             C 290 195 285 160 260 152 
+             C 245 148 225 150 215 162 
+             C 205 168 198 178 190 188 
+             C 182 198 175 212 178 226
+             C 180 230 186 232 192 228
+             C 198 224 202 216 208 214
+             C 212 212 216 215 218 220
+             L 218 232 L 230 232 L 230 215
+             C 234 212 240 212 245 216
+             L 245 232 L 258 232 L 258 210
+             C 264 210 272 214 276 220
+             L 276 232 L 286 232 
+             C 288 225 286 218 285 210 Z" />
+    <!-- Elephant Back muscle highlights -->
+    <path d="M 245 152 C 265 152 280 165 282 185 C 278 175 265 166 248 165 Z" fill="#ffffff" />
+    <path d="M 215 165 C 205 175 200 190 195 205 C 192 195 198 180 210 170 Z" fill="#ffffff" />
+    <!-- Tusk -->
+    <path d="M 188 208 C 178 212 165 224 160 230 C 168 226 182 220 192 216 Z" fill="#ffffff" stroke="#0a4ba6" stroke-width="1.5" />
+
+    <!-- Warrior Onake Obavva on Left -->
+    <!-- Lunging Warrior Silhouette -->
+    <!-- Head & Hair Knot -->
+    <circle cx="150" cy="172" r="8" />
+    <!-- Pestle (Onake) in Raised Hand -->
+    <polygon points="135,148 142,148 138,168 132,168" />
+    <!-- Raised Arm -->
+    <path d="M 136 168 L 144 178 L 140 185 L 132 175 Z" />
+    <!-- Torso & Draped Saree/Attire -->
+    <path d="M 142 180 C 148 190 152 205 156 220 L 142 228 L 136 218 L 130 232 L 115 232 C 120 220 128 205 135 190 Z" />
+    <!-- Forward Thrusting Shield/Hand -->
+    <path d="M 148 186 L 164 195 L 158 202 L 144 194 Z" />
+    <!-- Front Knee Bent, Rear Leg Extended -->
+    <path d="M 152 210 L 168 220 L 162 232 L 148 225 Z" />
+    <path d="M 126 222 L 105 232 L 115 232 Z" />
+  </g>
+</svg>

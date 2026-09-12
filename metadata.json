@@ -1,0 +1,6 @@
+{
+  "name": "Luminor Media",
+  "description": "Luminor Media is a Digital Marketing Agency helping brands grow through strategy, branding content and social media.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

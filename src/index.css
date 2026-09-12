@@ -1,0 +1,73 @@
+@import "@fontsource-variable/outfit";
+@import "@fontsource-variable/playfair-display";
+@import "@fontsource-variable/jetbrains-mono";
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: 'Playfair Display Variable', serif;
+  --font-sans: 'Outfit Variable', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', monospace;
+  --color-background: #fffbf2;
+  --color-foreground: #1a1814;
+  --color-border: #e8e1ce;
+  --color-input: #e8e1ce;
+  --color-ring: #ffbf00;
+  --color-primary: #ffbf00;
+  --color-primary-foreground: #1a1814;
+  --color-card: #ffffff;
+  --color-card-foreground: #1a1814;
+  --color-muted: #f7f1e3;
+  --color-muted-foreground: #575247;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
+}
+
+:root { --background: #fffbf2; --foreground: #1a1814; --border: #e8e1ce; --input: #e8e1ce; --ring: #ffbf00; --radius: 1rem; }
+
+* { border-color: #e8e1ce; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #fffbf2; color: #1a1814; font-family: 'Outfit Variable', sans-serif; -webkit-font-smoothing: antialiased; }
+button, a, input, textarea, select { transition: border-color 220ms ease, background-color 220ms ease, color 220ms ease, transform 220ms ease, box-shadow 220ms ease; }
+a { text-decoration: none; }
+.font-serif { font-family: 'Playfair Display Variable', serif; }
+.font-mono { font-family: 'JetBrains Mono Variable', monospace; }
+.eyebrow { color: #8c8474; font-family: 'JetBrains Mono Variable', monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.16em; line-height: 1.4; text-transform: uppercase; }
+.nav-link { position: relative; color: #575247; font-size: 0.84rem; font-weight: 500; }
+.nav-link::after { background: #ffbf00; bottom: -8px; content: ''; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; width: 100%; }
+.nav-link:hover, .nav-link-active { color: #1a1814; }
+.nav-link:hover::after, .nav-link-active::after { transform: scaleX(1); }
+.social-icon { align-items: center; border: 1px solid #e8e1ce; border-radius: 999px; display: inline-flex; height: 34px; justify-content: center; width: 34px; }
+.social-icon:hover { background: #ffbf00; border-color: #ffbf00; transform: translateY(-2px); }
+.noise-overlay { background-image: radial-gradient(#1a1814 0.65px, transparent 0.65px); background-size: 15px 15px; inset: 0; opacity: 0.022; pointer-events: none; position: fixed; z-index: 60; }
+.orb-canvas { height: 100%; inset: 0; position: absolute; width: 100%; }
+.form-label { display: block; font-size: 0.74rem; font-weight: 600; margin-bottom: 0.55rem; }
+.field-select { appearance: none; background-color: white; background-image: linear-gradient(45deg, transparent 50%, #575247 50%), linear-gradient(135deg, #575247 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-repeat: no-repeat; background-size: 5px 5px, 5px 5px; border: 1px solid #e8e1ce; border-radius: 0.65rem; height: 40px; outline: none; padding: 0 2.4rem 0 0.75rem; width: 100%; }
+.field-select:focus { border-color: #ffbf00; box-shadow: 0 0 0 3px rgba(255,191,0,0.16); }
+@keyframes gentle-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+@keyframes pulse-ring { 0% { opacity: 0.65; transform: scale(0.92); } 70%, 100% { opacity: 0; transform: scale(1.16); } }
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.mask-fade-edges {
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+.orb-canvas { animation: gentle-float 8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
