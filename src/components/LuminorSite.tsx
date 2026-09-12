@@ -31,6 +31,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
+export const SOCIAL_LINKS = {
+  instagram: "https://www.instagram.com/luminor.media_?stkn=MTNuejRnbWh1OXBzbA==",
+  linkedin: "https://www.linkedin.com/in/luminor-media-studio",
+};
+
 export const logoUrl = "https://customer-assets-0z36b82j.emergentagent.net/job_d0dc1b9e-821e-4a6c-b7f9-f5f2a678784c/artifacts/9mv4yxv3_luminor%20media%20logo.png";
 
 const navItems = [
@@ -104,12 +109,12 @@ export function SiteFooter() {
           <img src={logoUrl} alt="Luminor Media" className="h-12 w-auto object-contain mix-blend-multiply" />
           <p className="mt-5 max-w-xs text-sm leading-7 text-[#575247]">Your brand in a new light. Strategy, storytelling, and scale for the brands shaping what’s next.</p>
           <div className="mt-6 flex gap-3">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="social-icon" data-testid="footer-instagram-link"><Instagram className="size-4" /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="social-icon" data-testid="footer-linkedin-link"><Linkedin className="size-4" /></a>
+            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="social-icon" data-testid="footer-instagram-link"><Instagram className="size-4" /></a>
+            <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="social-icon" data-testid="footer-linkedin-link"><Linkedin className="size-4" /></a>
           </div>
         </div>
         <div data-testid="footer-navigation-block"><p className="eyebrow">Explore</p><div className="mt-4 flex flex-col gap-3 text-sm"><Link to="/about" data-testid="footer-about-link">About</Link><Link to="/services" data-testid="footer-services-link">Services</Link><Link to="/results" data-testid="footer-results-link">Results</Link><Link to="/insights" data-testid="footer-insights-link">Insights</Link></div></div>
-        <div data-testid="footer-contact-block"><p className="eyebrow">Find us</p><div className="mt-4 space-y-3 text-sm text-[#575247]"><p>San Francisco / London<br />New York / Dubai</p><Link to="/contact" className="font-semibold text-[#1a1814] underline decoration-[#ffbf00] underline-offset-4" data-testid="footer-contact-link">Let’s talk <ArrowRight className="ml-1 inline size-3" /></Link></div></div>
+        <div data-testid="footer-contact-block"><p className="eyebrow">Find us</p><div className="mt-4 space-y-3 text-sm text-[#575247]"><p>Bengaluru / Chitradurga<br />Karnataka / India</p><Link to="/contact" className="font-semibold text-[#1a1814] underline decoration-[#ffbf00] underline-offset-4" data-testid="footer-contact-link">Let’s talk <ArrowRight className="ml-1 inline size-3" /></Link></div></div>
         <div data-testid="footer-newsletter-block"><p className="eyebrow">The Luminor letter</p><p className="mt-4 text-sm leading-6 text-[#575247]">A considered monthly note on the ideas making brands impossible to ignore.</p><form onSubmit={submitNewsletter} className="mt-5 flex border-b border-[#1a1814] pb-2" data-testid="newsletter-form"><Input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Your email address" aria-label="Your email address" className="h-8 border-0 bg-transparent px-0 shadow-none focus-visible:ring-0" data-testid="newsletter-email-input" /><button type="submit" aria-label="Subscribe to newsletter" className="text-[#1a1814]" disabled={newsletter.isPending} data-testid="newsletter-submit-button"><ArrowRight className="size-5" /></button></form></div>
       </div>
       <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-3 border-t border-[#e8e1ce] px-5 py-5 text-[11px] uppercase tracking-[0.14em] text-[#8c8474] sm:flex-row lg:px-8" data-testid="footer-legal-row"><span>© 2025 Luminor Media</span><span>Built for brands with somewhere to go.</span></div>
@@ -140,29 +145,60 @@ export function OrbCanvas() {
     let animationId = 0;
     const points = Array.from({ length: 110 }, (_, index) => ({ angle: (index / 110) * Math.PI * 2, radius: 0.28 + (index % 7) * 0.025, speed: 0.00025 + (index % 5) * 0.00004 }));
     const render = () => {
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
+      const width = canvas.clientWidth || 0;
+      const height = canvas.clientHeight || 0;
+      if (width <= 0 || height <= 0) {
+        animationId = requestAnimationFrame(render);
+        return;
+      }
       const ratio = window.devicePixelRatio || 1;
-      if (canvas.width !== width * ratio || canvas.height !== height * ratio) { canvas.width = width * ratio; canvas.height = height * ratio; context.scale(ratio, ratio); }
+      if (canvas.width !== Math.floor(width * ratio) || canvas.height !== Math.floor(height * ratio)) {
+        canvas.width = Math.floor(width * ratio);
+        canvas.height = Math.floor(height * ratio);
+        context.scale(ratio, ratio);
+      }
       context.clearRect(0, 0, width, height);
       const centerX = width * 0.52;
       const centerY = height * 0.48;
-      const base = Math.min(width, height);
-      const halo = context.createRadialGradient(centerX, centerY, base * 0.03, centerX, centerY, base * 0.42);
-      halo.addColorStop(0, "rgba(255,191,0,0.22)"); halo.addColorStop(0.45, "rgba(255,191,0,0.07)"); halo.addColorStop(1, "rgba(255,191,0,0)");
-      context.fillStyle = halo; context.fillRect(0, 0, width, height);
+      const base = Math.max(1, Math.min(width, height));
+      const innerRadius = Math.max(0.1, base * 0.03);
+      const outerRadius = Math.max(innerRadius + 1, base * 0.42);
+      const halo = context.createRadialGradient(centerX, centerY, innerRadius, centerX, centerY, outerRadius);
+      halo.addColorStop(0, "rgba(255,191,0,0.22)");
+      halo.addColorStop(0.45, "rgba(255,191,0,0.07)");
+      halo.addColorStop(1, "rgba(255,191,0,0)");
+      context.fillStyle = halo;
+      context.fillRect(0, 0, width, height);
       points.forEach((point, index) => {
         point.angle += point.speed;
         const orbit = base * point.radius;
         const wobble = Math.sin(frame * 0.012 + index) * base * 0.018;
         const x = centerX + Math.cos(point.angle) * (orbit + wobble);
         const y = centerY + Math.sin(point.angle) * (orbit * 0.54 + wobble);
-        context.beginPath(); context.arc(x, y, 1.4 + (index % 3) * 0.55, 0, Math.PI * 2); context.fillStyle = index % 4 === 0 ? "#1a1814" : "#ffbf00"; context.globalAlpha = 0.35 + (index % 5) * 0.1; context.fill();
+        const particleRadius = Math.max(0.5, 1.4 + (index % 3) * 0.55);
+        context.beginPath();
+        context.arc(x, y, particleRadius, 0, Math.PI * 2);
+        context.fillStyle = index % 4 === 0 ? "#1a1814" : "#ffbf00";
+        context.globalAlpha = 0.35 + (index % 5) * 0.1;
+        context.fill();
       });
       context.globalAlpha = 1;
-      context.beginPath(); context.arc(centerX, centerY, base * 0.18 + Math.sin(frame * 0.018) * 3, 0, Math.PI * 2); context.fillStyle = "rgba(255,191,0,0.12)"; context.fill();
-      context.beginPath(); context.arc(centerX - base * 0.015, centerY - base * 0.018, base * 0.085, 0, Math.PI * 2); context.fillStyle = "#ffbf00"; context.shadowBlur = 34; context.shadowColor = "rgba(255,191,0,0.5)"; context.fill(); context.shadowBlur = 0;
-      frame += 1; animationId = requestAnimationFrame(render);
+      const glowOrbRadius = Math.max(0.1, base * 0.18 + Math.sin(frame * 0.018) * 3);
+      context.beginPath();
+      context.arc(centerX, centerY, glowOrbRadius, 0, Math.PI * 2);
+      context.fillStyle = "rgba(255,191,0,0.12)";
+      context.fill();
+
+      const coreOrbRadius = Math.max(0.1, base * 0.085);
+      context.beginPath();
+      context.arc(centerX - base * 0.015, centerY - base * 0.018, coreOrbRadius, 0, Math.PI * 2);
+      context.fillStyle = "#ffbf00";
+      context.shadowBlur = 34;
+      context.shadowColor = "rgba(255,191,0,0.5)";
+      context.fill();
+      context.shadowBlur = 0;
+      frame += 1;
+      animationId = requestAnimationFrame(render);
     };
     render();
     return () => cancelAnimationFrame(animationId);
@@ -263,12 +299,56 @@ export function ServiceCard({ service, index }: { service: typeof serviceCards[n
   );
 }
 
+function AnimatedCounter({ end, duration = 800 }: { end: number; duration?: number }) {
+  const [count, setCount] = useState(1);
+  const ref = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          const startTime = performance.now();
+          const startVal = 1;
+
+          const step = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const currentCount = Math.round(startVal + (end - startVal) * easeOut);
+            setCount(currentCount);
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              setCount(end);
+            }
+          };
+
+          requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.25 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [end, duration]);
+
+  return <span ref={ref}>{count}</span>;
+}
+
 export function MetricStrip() {
   const metrics = [
-    { value: "1+", label: "Years of experience", progress: 70, icon: BarChart3 },
-    { value: "20+", label: "Brands worked with", progress: 85, icon: Briefcase },
-    { value: "100+", label: "Campaigns created", progress: 95, icon: Flame },
-    { value: "50+", label: "Projects completed", progress: 90, icon: Award },
+    { target: 1, suffix: "+", label: "Years of experience", progress: 70, icon: BarChart3 },
+    { target: 20, suffix: "+", label: "Brands worked with", progress: 85, icon: Briefcase },
+    { target: 100, suffix: "+", label: "Campaigns created", progress: 95, icon: Flame },
+    { target: 50, suffix: "+", label: "Projects completed", progress: 90, icon: Award },
   ];
 
   return (
@@ -279,11 +359,11 @@ export function MetricStrip() {
           <div
             key={item.label}
             className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#e8e1ce] bg-[#fffbf2] p-5 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#ffbf00] hover:shadow-[0_16px_35px_rgba(255,191,0,0.12)]"
-            data-testid={`metric-${item.value.replace("+", "plus")}`}
+            data-testid={`metric-${item.target}plus`}
           >
             <div className="flex items-center justify-between">
               <span className="font-mono text-3xl font-bold tracking-tight text-[#1a1814] sm:text-4xl lg:text-5xl group-hover:text-[#ffbf00] transition-colors">
-                {item.value}
+                <AnimatedCounter end={item.target} duration={750} />{item.suffix}
               </span>
               <div className="flex size-9 items-center justify-center rounded-xl bg-[#ffbf00]/15 text-[#c59b27] group-hover:bg-[#ffbf00] group-hover:text-[#1a1814] transition-all">
                 <Icon className="size-4" />
@@ -310,10 +390,10 @@ export function MetricStrip() {
 
 export function ProofProcessBanner() {
   const metrics = [
-    { value: "1+", label: "YEARS OF EXPERIENCE", accent: "from-[#ffbf00] to-[#ffd752]", bar: "w-[70%]" },
-    { value: "20+", label: "BRANDS WORKED WITH", accent: "from-[#ffffff] to-[#e2dfd7]", bar: "w-[85%]" },
-    { value: "100+", label: "CAMPAIGNS CREATED", accent: "from-[#ffbf00] to-[#ffd752]", bar: "w-[95%]" },
-    { value: "50+", label: "PROJECTS COMPLETED", accent: "from-[#ffffff] to-[#e2dfd7]", bar: "w-[90%]" },
+    { target: 1, suffix: "+", label: "YEARS OF EXPERIENCE", accent: "from-[#ffbf00] to-[#ffd752]", bar: "w-[70%]" },
+    { target: 20, suffix: "+", label: "BRANDS WORKED WITH", accent: "from-[#ffffff] to-[#e2dfd7]", bar: "w-[85%]" },
+    { target: 100, suffix: "+", label: "CAMPAIGNS CREATED", accent: "from-[#ffbf00] to-[#ffd752]", bar: "w-[95%]" },
+    { target: 50, suffix: "+", label: "PROJECTS COMPLETED", accent: "from-[#ffffff] to-[#e2dfd7]", bar: "w-[90%]" },
   ];
 
   return (
@@ -347,7 +427,7 @@ export function ProofProcessBanner() {
                     : "linear-gradient(to bottom, #ffffff, #cfc9bd)"
                 }}
               >
-                {m.value}
+                <AnimatedCounter end={m.target} duration={800} />{m.suffix}
               </div>
 
               <div className="mt-4 text-[11px] sm:text-xs font-semibold tracking-[0.14em] text-[#a59e90] uppercase">
