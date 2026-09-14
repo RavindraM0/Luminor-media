@@ -36,7 +36,7 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/in/luminor-media-studio",
 };
 
-export const logoUrl = "https://customer-assets-0z36b82j.emergentagent.net/job_d0dc1b9e-821e-4a6c-b7f9-f5f2a678784c/artifacts/9mv4yxv3_luminor%20media%20logo.png";
+export const logoUrl = "/luminor-logo.png";
 
 const navItems = [
   ["About", "/about"],
