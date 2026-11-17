@@ -1,0 +1,17 @@
+{
+  "name": "Luminor Media",
+  "short_name": "Luminor",
+  "description": "Luminor Media is a Digital Marketing Agency helping brands grow through strategy, branding content and social media.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fffbf2",
+  "theme_color": "#fffbf2",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://luminormedia.in/sitemap.xml
