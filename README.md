@@ -22,6 +22,8 @@ client-side paths back to `index.html`. Pushes to `main` deploy automatically
 when the Vercel project is linked to this repository with its root directory
 set to the repository root.
 
+Production site: [https://www.luminormedia.in](https://www.luminormedia.in).
+
 The static preview does not include backend services. Contact or newsletter
 forms are not confirmed to deliver messages; do not rely on them for lead
 collection until a backend is connected.
