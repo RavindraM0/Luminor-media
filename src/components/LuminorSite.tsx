@@ -13,9 +13,11 @@ import {
   Instagram,
   Layers3,
   Linkedin,
+  Mail,
   Menu,
   MoveUpRight,
   Palette,
+  Phone,
   Play,
   Share2,
   Sparkles,
@@ -32,7 +34,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 export const SOCIAL_LINKS = {
-  instagram: "https://www.instagram.com/luminor.media_?stkn=MTNuejRnbWh1OXBzbA==",
+  instagram: "https://www.instagram.com/luminormedia_?mdxt=YTA3dTkyaWFoOTRm",
   linkedin: "https://www.linkedin.com/in/luminor-media-studio",
 };
 
@@ -104,17 +106,35 @@ export function SiteFooter() {
   };
   return (
     <footer className="border-t border-[#e8e1ce] bg-[#f7f1e3]" data-testid="site-footer">
-      <div className="mx-auto grid max-w-[1320px] gap-12 px-5 py-14 lg:grid-cols-[1.3fr_0.7fr_0.7fr_1.3fr] lg:px-8">
+      <div className="mx-auto grid max-w-[1320px] gap-12 px-5 py-14 lg:grid-cols-[1.3fr_0.7fr_1.5fr_1.3fr] lg:px-8">
         <div data-testid="footer-brand-block">
           <img src={logoUrl} alt="Luminor Media" className="h-12 w-auto object-contain mix-blend-multiply" />
           <p className="mt-5 max-w-xs text-sm leading-7 text-[#575247]">Your brand in a new light. Strategy, storytelling, and scale for the brands shaping what’s next.</p>
           <div className="mt-6 flex gap-3">
             <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="social-icon" data-testid="footer-instagram-link"><Instagram className="size-4" /></a>
             <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="social-icon" data-testid="footer-linkedin-link"><Linkedin className="size-4" /></a>
+            <a href="mailto:Marketing@luminormedia.in" aria-label="Email Marketing@luminormedia.in" className="social-icon" data-testid="footer-email-link"><Mail className="size-4" /></a>
+            <a href="tel:+918197445026" aria-label="Call +91 8197445026" className="social-icon" data-testid="footer-phone-link"><Phone className="size-4" /></a>
           </div>
         </div>
         <div data-testid="footer-navigation-block"><p className="eyebrow">Explore</p><div className="mt-4 flex flex-col gap-3 text-sm"><Link to="/about" data-testid="footer-about-link">About</Link><Link to="/services" data-testid="footer-services-link">Services</Link><Link to="/results" data-testid="footer-results-link">Results</Link><Link to="/insights" data-testid="footer-insights-link">Insights</Link></div></div>
-        <div data-testid="footer-contact-block"><p className="eyebrow">Find us</p><div className="mt-4 space-y-3 text-sm text-[#575247]"><p>Bengaluru / Chitradurga<br />Karnataka / India</p><Link to="/contact" className="font-semibold text-[#1a1814] underline decoration-[#ffbf00] underline-offset-4" data-testid="footer-contact-link">Let’s talk <ArrowRight className="ml-1 inline size-3" /></Link></div></div>
+        <div data-testid="footer-contact-block">
+          <p className="eyebrow">Find us</p>
+          <div className="mt-4 space-y-3 text-sm text-[#575247]">
+            <p className="font-serif text-lg font-bold text-[#ffbf00]" data-testid="footer-company-name">LUMINOR MEDIA</p>
+            <div>
+              <p className="font-semibold text-[#1a1814]">Registered Office</p>
+              <p className="mt-1 text-xs leading-5" data-testid="footer-registered-address">
+                #3698/A, 1ST FLOOR, Maruthi Nilaya,<br />
+                CK PURA Extension, Near VayuPutra Hospital,<br />
+                BD Road, Chitradurga - 577501.
+              </p>
+            </div>
+            <a href="mailto:Marketing@luminormedia.in" className="block break-all hover:text-[#1a1814]" data-testid="footer-contact-email">Email: Marketing@luminormedia.in</a>
+            <a href="tel:+918197445026" className="block hover:text-[#1a1814]" data-testid="footer-contact-phone">Contact Number: +91 8197445026</a>
+            <Link to="/contact" className="font-semibold text-[#1a1814] underline decoration-[#ffbf00] underline-offset-4" data-testid="footer-contact-link">Let’s talk <ArrowRight className="ml-1 inline size-3" /></Link>
+          </div>
+        </div>
         <div data-testid="footer-newsletter-block"><p className="eyebrow">The Luminor letter</p><p className="mt-4 text-sm leading-6 text-[#575247]">A considered monthly note on the ideas making brands impossible to ignore.</p><form onSubmit={submitNewsletter} className="mt-5 flex border-b border-[#1a1814] pb-2" data-testid="newsletter-form"><Input type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="Your email address" aria-label="Your email address" className="h-8 border-0 bg-transparent px-0 shadow-none focus-visible:ring-0" data-testid="newsletter-email-input" /><button type="submit" aria-label="Subscribe to newsletter" className="text-[#1a1814]" disabled={newsletter.isPending} data-testid="newsletter-submit-button"><ArrowRight className="size-5" /></button></form></div>
       </div>
       <div className="mx-auto flex max-w-[1320px] flex-col justify-between gap-3 border-t border-[#e8e1ce] px-5 py-5 text-[11px] uppercase tracking-[0.14em] text-[#8c8474] sm:flex-row lg:px-8" data-testid="footer-legal-row"><span>© 2025 Luminor Media</span><span>Built for brands with somewhere to go.</span></div>

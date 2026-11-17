@@ -17,7 +17,7 @@ import suheartImg from "@/assets/images/team/suheart.jpg";
 const teamMembersData: TeamMemberInfo[] = [
   { id: "preetham", name: "Preetham A", role: "Founder", defaultImage: preethamImg },
   { id: "ravindra", name: "Ravindra M.O", role: "Web Developer", defaultImage: ravindraImg },
-  { id: "chetas", name: "Chetas", role: "Creative Head", defaultImage: chetasImg },
+  { id: "chetas", name: "Chethas", role: "Creative Head", defaultImage: chetasImg },
   { id: "vishnu", name: "Vishnu Reddy", role: "Executive Manager", defaultImage: vishnuImg },
   { id: "hardik", name: "Hardik P", role: "Co-Founder / Content Strategist", defaultImage: hardikImg },
   { id: "gokul", name: "Gokul", role: "Graphic Designer", defaultImage: gokulImg },

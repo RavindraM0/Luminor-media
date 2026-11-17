@@ -3,6 +3,8 @@ import { X, Sparkles, ExternalLink, Play, Pause } from "lucide-react";
 import sakshiTailorLogo from "@/assets/images/sakshi_tailor_logo_1789157413801.jpg";
 import grainesLotusLogo from "@/assets/images/graines_lotus_logo_1789157452714.jpg";
 import ka16RunClubLogo from "@/assets/images/ka16_runclub_logo_1789157473645.jpg";
+import kaveriIndustriesLogo from "@/assets/images/kaveri-industries.jpg";
+import o2SalonAndSpaLogo from "@/assets/images/o2-salon-and-spa.jpg";
 
 export interface BrandPartner {
   id: string;
@@ -86,6 +88,26 @@ export const brandPartners: BrandPartner[] = [
     description: "Trusted community pharmacy and wellness care provider delivering essential healthcare products, guidance, and trusted patient care.",
     aspectClass: "h-14 w-32 sm:h-16 sm:w-44",
     logoHeight: "h-14 sm:h-16",
+  },
+  {
+    id: "kaveri-industries",
+    name: "Kaveri Industries",
+    category: "Industrial & Manufacturing",
+    subtitle: "Pure by design.",
+    logo: kaveriIndustriesLogo,
+    accent: "#a54f43",
+    description: "Kaveri Industries, with the brand line “Pure by design.”",
+    logoHeight: "h-16 sm:h-20",
+  },
+  {
+    id: "o2-salon-and-spa",
+    name: "O2+ Salon & Spa",
+    category: "Salon & Spa",
+    subtitle: "Refresh. Rejuvenate. Revive.",
+    logo: o2SalonAndSpaLogo,
+    accent: "#9c1231",
+    description: "O2+ Salon & Spa, with the brand line “Refresh. Rejuvenate. Revive.”",
+    logoHeight: "h-16 sm:h-20",
   },
 ];
 
